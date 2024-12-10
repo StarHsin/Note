@@ -1,7 +1,7 @@
 import { ReactSketchCanvas } from "react-sketch-canvas";
 import { useState, useEffect } from "react";
 
-function board() {
+function board({ canvasRef, strokeWidth, strokeColor }) {
   const [canvasSize, setCanvasSize] = useState({ width: 600, height: 600 });
 
   useEffect(() => {
@@ -25,15 +25,15 @@ function board() {
   }, []);
 
   return (
-    <div>
-      <h1>Draw here!</h1>
-      <ReactSketchCanvas
+    <ReactSketchCanvas
+        ref={canvasRef}
         width={`${canvasSize.width}px`}
         height={`${canvasSize.height}px`}
+        strokeWidth={strokeWidth}
+        eraserWidth={strokeWidth}
+        strokeColor={strokeColor}
         canvasColor="transparent"
-        strokeColor="#a855f7"
-      />
-    </div>
+  />
   );
 }
 

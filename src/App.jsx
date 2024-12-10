@@ -1,11 +1,12 @@
+// App.jsx
 import React from 'react';
-import Test from './DrawingBoard.jsx';
+import ToolsBar from './ToolsBar.jsx';
 
 function App() {
 
   return (
     <>
-      <Test />
+      <ToolsBar />
     </>
   );
 }
