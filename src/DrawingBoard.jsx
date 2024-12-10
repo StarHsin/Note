@@ -1,7 +1,7 @@
 import { ReactSketchCanvas } from "react-sketch-canvas";
 import { useState, useEffect } from "react";
 
-function Test() {
+function board() {
   const [canvasSize, setCanvasSize] = useState({ width: 600, height: 600 });
 
   useEffect(() => {
@@ -37,4 +37,4 @@ function Test() {
   );
 }
 
-export default Test;
+export default board;
