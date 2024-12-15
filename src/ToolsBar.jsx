@@ -4,25 +4,25 @@ import DrawingBoard from './DrawingBoard.jsx';
 function ToolsBar() {
     const canvasRef = useRef(null);
     const [eraseMode, setEraseMode] = useState(false);
-    const [highlightMode, setHighlightMode] = useState(false);  // 新增螢光筆模式
+    const [highlightMode, setHighlightMode] = useState(false); 
     const [strokeWidth, setStrokeWidth] = useState(5);
     const [strokeColor, setStrokeColor] = useState("#000000");
 
     const handleEraserClick = () => {
         setEraseMode(true);
-        setHighlightMode(false);  // 關閉螢光筆模式
+        setHighlightMode(false);  
         canvasRef.current?.eraseMode(true);
     };
 
     const handlePenClick = () => {
         setEraseMode(false);
-        setHighlightMode(false);  // 關閉螢光筆模式
+        setHighlightMode(false); 
         canvasRef.current?.eraseMode(false);
     };
 
     const handleHighlightClick = () => {
-        setHighlightMode(true);  // 開啟螢光筆模式
-        setEraseMode(false);     // 關閉橡皮擦模式
+        setHighlightMode(true);  
+        setEraseMode(false);     
         canvasRef.current?.eraseMode(false);
     };
 
@@ -71,7 +71,7 @@ function ToolsBar() {
                         type="button"
                         className="button"
                         disabled={!eraseMode && highlightMode}
-                        onClick={handleHighlightClick}  // 新增螢光筆按鈕
+                        onClick={handleHighlightClick}  
                     >
                         螢光筆
                     </button>
@@ -125,8 +125,11 @@ function ToolsBar() {
                         canvasRef={canvasRef}
                         strokeWidth={strokeWidth}
                         eraserWidth={strokeWidth}
-                        strokeColor={highlightMode ? "rgba(255, 255, 0, 0.6)" : strokeColor}  // 螢光筆顏色（黃色半透明）
-                        isHighlightMode={highlightMode}  // 傳遞螢光筆模式狀態
+                        strokeColor={highlightMode 
+                            ? `rgba(${parseInt(strokeColor.slice(1, 3), 16)}, ${parseInt(strokeColor.slice(3, 5), 16)}, ${parseInt(strokeColor.slice(5, 7), 16)}, 0.6)` 
+                            : strokeColor
+                          }
+                        isHighlightMode={highlightMode} 
                     />
                 </div>
             </div>
